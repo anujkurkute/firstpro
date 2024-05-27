@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row row-cols3 g-2">
+        {% for node in nodes%}
+        <div class="col">
+            <div class="p-p border">
+                <a href="{% url "nodes.detail" pk=node.id %}">
+                <h3 class="node_li">{{node.title}}</h3></a>
+                <h3 class="node_li">{{node.text|truncatechars:3}}</h3>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    
+{% endblock %}

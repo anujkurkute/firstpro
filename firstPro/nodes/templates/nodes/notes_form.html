@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block content %}
+<form  method="post">
+    {% csrf_token %}
+    
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+
+{% if form.errors.title %}
+<div class="alert alert-danger my-5">
+    {{ form.errors.title }}
+</div>
+{% endif %}
+
+<a href = "{% url 'nodes.list' %}" class='btn btn-secondary'>
+    cancel
+
+</a>
+
+
+{% endblock %}
